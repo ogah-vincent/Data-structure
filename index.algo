@@ -1,0 +1,56 @@
+ALGORITHM algorithm_name
+
+function findDistinctSum(set1, set2) {
+  let distinctElements = [];
+  let sum = 0;
+
+  set1.forEach(element => {
+    if (!distinctElements.includes(element)) {
+      distinctElements.push(element);
+      sum += element;
+    }
+  });
+
+  set2.forEach(element => {
+    if (!distinctElements.includes(element)) {
+      distinctElements.push(element);
+      sum += element;
+    }
+  });
+
+  return sum;
+}
+
+// Example usage:
+const set1 = [3, 1, 7, 9];
+const set2 = [2, 4, 1, 9, 3];
+console.log(findDistinctSum(set1, set2)); // Output: 13
+
+function dotProduct(v1, v2) {
+  let result = 0;
+  for (let i = 0; i < v1.length; i++) {
+    result += v1[i] * v2[i];
+  }
+  return result;
+}
+
+function checkOrthogonalVectors(vectors) {
+  for (let i = 0; i < vectors.length; i++) {
+    for (let j = i + 1; j < vectors.length; j++) {
+      const dotProductResult = dotProduct(vectors[i], vectors[j]);
+      if (dotProductResult === 0) {
+        console.log(`Vectors ${i} and ${j} are orthogonal`);
+      } else {
+        console.log(`Vectors ${i} and ${j} are not orthogonal`);
+      }
+    }
+  }
+}
+
+// Example usage:
+const vectors = [
+  [1, 2, 3],
+  [4, 5, 6],
+  [0, -1, 2]
+];
+checkOrthogonalVectors(vectors);
